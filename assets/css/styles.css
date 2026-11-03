@@ -12,15 +12,15 @@
    ========================================================================== */
 :root {
   /* --- Bảng màu --- */
-  --color-primary: #25aceb;      /* xanh thương hiệu */
-  --color-primary-dark: #eef2f5;
-  --color-accent: #d62084;       /* tím nhấn */
-  --color-text: #110e11;         /* chữ chính */
-  --color-text-soft: #64748b;    /* chữ phụ */
-  --color-bg: #9ef7e8;           /* nền trang */
-  --color-surface: #eb7fd9;      /* nền vùng nhấn */
-  --color-border: #e2ecf0;       /* viền */
-  --color-chip: #448b68;         /* nền chip kỹ năng */
+  --color-primary: #fff;         /* màu nhấn */
+  --color-primary-dark: #24698b;
+  --color-accent: #fff;
+  --color-text: #fff;            /* chữ chính */
+  --color-text-soft: #fff;       /* chữ phụ */
+  --color-bg: #87cefa;           /* nền xanh nhạt */
+  --color-surface: #4b9fc9;      /* nền vùng nhấn */
+  --color-border: rgba(255, 255, 255, 0.55);
+  --color-chip: #357fa8;         /* nền chip kỹ năng */
 
   /* --- Typography --- */
   --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -124,7 +124,7 @@ ul {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(53, 127, 168, 0.94);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -247,7 +247,7 @@ ul {
 .btn:active { transform: translateY(1px); }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: var(--color-chip);
   color: #fff;
   box-shadow: var(--shadow);
 }
@@ -270,7 +270,7 @@ ul {
 
 .skill-chip {
   background: var(--color-chip);
-  color: var(--color-primary-dark);
+  color: var(--color-text);
   border: 1px solid var(--color-border);
   padding: 0.5rem 0.9rem;
   border-radius: 999px;
@@ -352,27 +352,58 @@ ul {
 /* ==========================================================================
    8. LIÊN HỆ
    ========================================================================== */
-.contact-list {
+.contact-form {
+  max-width: 620px;
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: rgba(75, 159, 201, 0.45);
+  box-shadow: var(--shadow);
+}
+
+.contact-form-title {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-lg);
+}
+
+.form-group {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 0.35rem;
+  margin-bottom: var(--space-2);
 }
 
-.contact-list li {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1);
-  align-items: baseline;
+.form-group label {
+  font-weight: 600;
 }
 
-.contact-label {
-  min-width: 90px;
-  font-weight: 700;
-  color: var(--color-text);
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: #1f2937;
+  background: #fff;
+  font: inherit;
 }
 
-.contact-list a { color: var(--color-primary); }
-.contact-list a:hover { text-decoration: underline; }
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #64748b;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+  outline: 2px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 1px;
+}
 
 /* ==========================================================================
    9. FOOTER
